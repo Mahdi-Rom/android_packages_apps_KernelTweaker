@@ -85,20 +85,20 @@
         <item>Informations and credits</item>
     </string-array>
     <string-array name="menu_colors">
-        <item>#ff0099cc</item>
-        <item>#ff0099cc</item>
-        <item>#ff0099cc</item>
-        <item>#ff0099cc</item>
-        <item>#ff0099cc</item>
-        <item>#ff0099cc</item>
-        <item>#ff0099cc</item>
-        <item>#ff0099cc</item>
-        <item>#ff0099cc</item>
-        <item>#ff0099cc</item>
-        <item>#ff0099cc</item>
-        <item>#ff0099cc</item>
-        <item>#ff0099cc</item>
-        <item>#ff0099cc</item>
+        <item>#ffffffff</item>
+        <item>#ffffffff</item>
+        <item>#ffffffff</item>
+        <item>#ffffffff</item>
+        <item>#ffffffff</item>
+        <item>#ffffffff</item>
+        <item>#ffffffff</item>
+        <item>#ffffffff</item>
+        <item>#ffffffff</item>
+        <item>#ffffffff</item>
+        <item>#ffffffff</item>
+        <item>#ffffffff</item>
+        <item>#ffffffff</item>
+        <item>#ffffffff</item>
     </string-array>
     <string-array name="flash_dialog">
         <item>Flash Package</item>

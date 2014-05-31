@@ -47,9 +47,4 @@
         <item name="android:textColor">#FFFFFF</item>
     </style>
 
-    <style name="LightListViewStyle" parent="@android:style/Widget.ListView">
-        <item name="android:dividerHeight">1px</item>
-        <item name="android:divider">@drawable/screen_background_selector_dark</item>
-    </style>
-
 </resources>

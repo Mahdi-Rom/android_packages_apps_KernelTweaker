@@ -37,7 +37,6 @@ public class SettingsFragment extends PreferenceFragment implements OnPreference
 	public static final String KEY_ENABLE_GLOBAL = "key_enable_global";
 	public static final String KEY_ENABLE_PERSONAL = "key_enable_personal";
 	public static final String KEY_GLOBAL_COLOR = "key_global_color";
-	public static final String KEY_THEME = "key_theme";
 	public static final String KEY_STAT = "key_color_stats";
 	public static final String KEY_INFO = "key_color_info";
 	public static final String KEY_CPU = "key_color_cpu";
@@ -53,7 +52,6 @@ public class SettingsFragment extends PreferenceFragment implements OnPreference
 	public static final String KEY_PERSONAL_CAT = "key_personal_category";
 	public static final String KEY_PROP = "key_color_prop";
 	public static final String KEY_INIT = "key_color_init";
-	//public static final String KEY_BLUR = "key_color_blur";
 	public static final String KEY_DEBUG = "key_debug";
 	public static final String KEY_SLOG = "key_slog";
 	public static final String LOG_FILE = Environment.getExternalStorageDirectory().getAbsolutePath()+"/KernelTweaker_log.txt";
@@ -76,8 +74,6 @@ public class SettingsFragment extends PreferenceFragment implements OnPreference
 	private ColorPickerPreference mRecovery;
 	private ColorPickerPreference mProp;
 	private ColorPickerPreference mInit;
-	//private ColorPickerPreference mBlur;
-	private CheckBoxPreference mTheme;
 	private SharedPreferences mPrefs;
 	private PreferenceCategory mPersonalCat;
 	private Preference mLog;
@@ -90,7 +86,6 @@ public class SettingsFragment extends PreferenceFragment implements OnPreference
 		mPrefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
 		mEnable = (CheckBoxPreference) findPreference(KEY_ENABLE_GLOBAL);
 		mPersonal = (CheckBoxPreference) findPreference(KEY_ENABLE_PERSONAL);
-		mTheme = (CheckBoxPreference) findPreference(KEY_THEME);
 		mColor = (ColorPickerPreference) findPreference(KEY_GLOBAL_COLOR);
 		mStats = (ColorPickerPreference) findPreference(KEY_STAT);
 		mInfo = (ColorPickerPreference) findPreference(KEY_INFO);
@@ -107,7 +102,6 @@ public class SettingsFragment extends PreferenceFragment implements OnPreference
 
 		mProp = (ColorPickerPreference) findPreference(KEY_PROP);
 		mInit = (ColorPickerPreference) findPreference(KEY_INIT);
-		//mBlur = (ColorPickerPreference) findPreference(KEY_BLUR);
 
 		mPersonalCat = (PreferenceCategory) findPreference(KEY_PERSONAL_CAT);
 
@@ -119,7 +113,6 @@ public class SettingsFragment extends PreferenceFragment implements OnPreference
 		mColor.setEnabled(enabled);
 
 		mEnable.setOnPreferenceChangeListener(this);
-		mTheme.setOnPreferenceChangeListener(this);
 		mColor.setOnPreferenceChangeListener(this);
 		mPersonal.setOnPreferenceChangeListener(this);
 		mStats.setOnPreferenceChangeListener(this);;
@@ -136,7 +129,6 @@ public class SettingsFragment extends PreferenceFragment implements OnPreference
 		mRecovery.setOnPreferenceChangeListener(this);
 		mProp.setOnPreferenceChangeListener(this);
 		mInit.setOnPreferenceChangeListener(this);
-		//mBlur.setOnPreferenceChangeListener(this);
 		mLog.setOnPreferenceClickListener(this);
 		mRunLog.setOnPreferenceClickListener(this);
 
@@ -160,7 +152,7 @@ public class SettingsFragment extends PreferenceFragment implements OnPreference
 			mColor.setEnabled((Boolean)newValue);
 			MainActivity.mAdapter.notifyDataSetChanged();
 			if(mPersonal.isChecked()) {
-				mPersonal.setChecked(false);
+				mPersonal.setChecked(true);
 			}
 			return true;
 		}
@@ -179,12 +171,6 @@ public class SettingsFragment extends PreferenceFragment implements OnPreference
 		}
 		if(pref == mColor) {
 			MainActivity.mAdapter.notifyDataSetChanged();
-			return true;
-		}
-		if(pref == mTheme) {
-			editor.putBoolean(KEY_THEME, (Boolean)newValue);
-			MainActivity.setAppTheme();
-			Helpers.restartPC(getActivity());
 			return true;
 		}
 		if(pref == mStats) {
@@ -243,12 +229,6 @@ public class SettingsFragment extends PreferenceFragment implements OnPreference
 			MainActivity.mAdapter.notifyDataSetChanged();
 			return true;
 		}
-                /*
-		if(pref == mBlur) {
-			MainActivity.mAdapter.notifyDataSetChanged();
-			return true;
-		}
-                */
 		editor.commit();
 		return false;
 	}

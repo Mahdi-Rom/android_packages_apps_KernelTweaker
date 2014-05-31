@@ -138,16 +138,11 @@ public class CustomArrayAdapter extends BaseAdapter {
 				case 19:
 					color = mPrefs.getInt(SettingsFragment.KEY_INIT, Color.parseColor("#FFFFFF"));
 					break;
-                                /*
-				case 20:
-					color = mPrefs.getInt(SettingsFragment.KEY_BLUR, Color.parseColor("#FFFFFF"));
-					break;
-                                */
 				}
 				text1.setTextColor(color);
 				image.setColorFilter(color);
 			}else {
-				int color = Color.parseColor("#ff8c8b8b");
+				int color = Color.parseColor("#FFFFFF");
 				text1.setTextColor(color);
 				image.setColorFilter(color);
 			}
@@ -157,12 +152,6 @@ public class CustomArrayAdapter extends BaseAdapter {
 			TextView header = (TextView) v.findViewById(R.id.menu_header);
 			header.setText(titles[position].replaceAll("--", ""));
 			header.setClickable(false);
-			boolean light = mPrefs.getBoolean(SettingsFragment.KEY_THEME, false);
-			if(light){
-				header.setTextColor(Color.BLACK);
-			}else {
-				header.setTextColor(Color.WHITE);
-			}
 		}
 		return v;
 	}

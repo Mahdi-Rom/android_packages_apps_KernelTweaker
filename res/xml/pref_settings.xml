@@ -18,10 +18,6 @@
     </PreferenceCategory>
     <PreferenceCategory android:title="Theme options" >
         <CheckBoxPreference
-            android:key="key_theme"
-            android:summary="Use Holo Light with Dark ActionBar Theme"
-            android:title="Use Light theme" />
-        <CheckBoxPreference
             android:key="key_enable_global"
             android:summary="Change color for every tab and menu"
             android:title="Use Global color" />

@@ -168,9 +168,6 @@ public class MainActivity extends FragmentActivity implements OnItemClickListene
 		// By hiding the main fragment, transparency isn't an issue
 		//ft.addToBackStack(null);
 		ft.commit();
-
-		
-		setAppTheme();
 		mountPartitions();
 		copyHelpers();
 	}
@@ -390,25 +387,6 @@ public class MainActivity extends FragmentActivity implements OnItemClickListene
 			e.printStackTrace();
 		}
 	}
-
-	public static void setAppTheme() {
-		boolean light = mPrefs.getBoolean(SettingsFragment.KEY_THEME, false);
-		if(light) {
-			mContext.setTheme(R.style.AppLight);
-			menu.setBackground(mContext.getResources().getDrawable(R.drawable.bg_menu_light));
-			mContainer.setBackground(mContext.getResources().getDrawable(R.drawable.bg_light));
-			mGlossaryContainer.setBackground(mContext.getResources().getDrawable(R.drawable.bg_menu_light));
-			menulist.setDivider(new ColorDrawable(Color.parseColor("#bbbbbb")));
-			menulist.setDividerHeight(2);
-		}else {
-			mContext.setTheme(R.style.AppTheme);
-			menu.setBackground(mContext.getResources().getDrawable(R.drawable.bg_menu_dark));;
-			mContainer.setBackground(mContext.getResources().getDrawable(R.drawable.bg_dark));
-			mGlossaryContainer.setBackground(mContext.getResources().getDrawable(R.drawable.bg_menu_dark));
-		}
-
-	}
-
 
 	private void copyHelpers() {
 
